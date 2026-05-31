@@ -1,25 +1,7 @@
-// Week 2 — Parameterized MUX
-// ===========================
-// Parameterized modules let you reuse the same code for 1-bit,
-// 8-bit, or any-bit-wide signals — important in a CPU datapath.
-//
-// Run: iverilog -o sim ../testbenches/tb_mux.v mux.v && vvp sim
-
-// 2:1 MUX — WIDTH bits wide
-module mux2 #(parameter WIDTH = 8) (
-    input  [WIDTH-1:0] a, b,
-    input              sel,
-    output [WIDTH-1:0] y
-);
-    // YOUR CODE HERE
-    // Hint: one line with assign and ternary operator is perfect here
+module mux2 #(parameter WIDTH = 8) (input [WIDTH-1:0] a, b, input sel, output [WIDTH-1:0] y);
+	assign y = sel ? b:a;
 endmodule
 
-// 4:1 MUX — WIDTH bits wide
-module mux4 #(parameter WIDTH = 8) (
-    input  [WIDTH-1:0] d0, d1, d2, d3,
-    input  [1:0]       sel,
-    output [WIDTH-1:0] y
-);
-    // YOUR CODE HERE
+module mux4 #(parameter WIDTH = 8) (input [WIDTH-1:0] d0, d1, d2, d3, input [1:0] sel, output [WIDTH-1:0] y);
+	assign y = sel[0] ? (sel[1]? d3 : d1) : (sel[1]? d2 : d0);
 endmodule

@@ -1,0 +1,4 @@
+The only file that changed for me in this architecture was the decoder.v file which
+now contains a multi-cycle implementation. Again I stuck to my implementation
+of the processor so only the eight instructions I needed are there. The testbench 
+results are identical so there's nothing new to show there.
